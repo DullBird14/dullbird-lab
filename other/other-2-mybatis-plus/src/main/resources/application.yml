@@ -1,0 +1,26 @@
+# DataSource Config
+spring:
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    schema: classpath:db/schema-h2.sql
+#    data: classpath:db/data-h2.sql
+#    url: jdbc:h2:mem:test
+#    username: root
+#    password: test
+  datasource:
+    url: 'jdbc:mysql://127.0.0.1:3306/localhost?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=true'
+    username: 'root'
+    password: '123456'
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis-plus:
+  mapper-locations: 'classpath:mapper/**/*.xml'
+  #完整的sql执行控制台输出
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: deleted  #全局逻辑删除字段值 3.3.0开始支持，详情看下面。
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+#mybatis:
+#  mapperLocations: 'classpath:mapper/**/*.xml'

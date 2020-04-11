@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: demo-consumer # Spring 应用名
+  cloud:
+    nacos:
+      # Nacos 作为注册中心的配置项，对应 NacosDiscoveryProperties 配置类
+      discovery:
+        server-addr: 127.0.0.1:8848 # Nacos 服务器地址
+#feign 的 自定义配置
+logging:
+  level:
+    #这种方式还不能看到。日志在这里打印
+    org.dullbird.feign.consumer.DemoProviderFeignClient: DEBUG
+feign:
+  # Feign 客户端配置，对应 FeignClientProperties 配置属性类
+  client:
+    # config 配置项是 Map 类型。key 为 Feign 客户端的名字，value 为 FeignClientConfiguration 对象
+    config:
+      # 全局级别配置
+      default:
+        logger-level: BASIC
+      # 客户端级别配置
+      demo-provider:
+        logger-level: FULL
+  # Feign Apache HttpClient 配置项，对应 FeignHttpClientProperties 配置属性类
+  httpclient:
+    # 是否开启。默认为 true
+    enabled: true
+    # 最大连接数。默认为 200
+    max-connections: 200
+    # 每个路由的最大连接数。默认为 50。router = host + port
+    max-connections-per-route: 50
+ribbon:
+  # 请求的连接超时时间，单位：毫秒。默认为 1000
+  ConnectTimeout: 1000
+  # 请求的读取超时时间，单位：毫秒。默认为 1000
+  ReadTimeout: 1
+  # 是否对所有操作都进行重试，默认为 false。
+  OkToRetryOnAllOperations: true
+  # 对当前服务的重试次数，默认为 0 次。
+  MaxAutoRetries: 0
+  # 重新选择服务实例的次数，默认为 1 次。注意，不包含第 1 次哈。
+  MaxAutoRetriesNextServer: 1
+server:
+  port: 28080 # 服务器端口。默认为 8080
