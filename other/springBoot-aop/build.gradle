@@ -1,0 +1,50 @@
+buildscript {
+
+    ext {
+        springBootVersion = '2.0.6.RELEASE'
+
+    }
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+apply plugin: 'maven-publish'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'org.yungu'
+version '1.0'
+ext{
+    jmockitVersion ="1.19"
+    testngVersion = "6.9.10"
+    springBootTestVersion = '2.0.4.RELEASE'
+    projectProfile = 'SNAPSHOT'
+    jarVersion = '1.0.3'
+}
+sourceCompatibility = 1.8
+
+
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+
+}
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compileOnly 'org.projectlombok:lombok'
+    compile group: 'cglib', name: 'cglib', version: '2.2.2'
+    compile('org.springframework.boot:spring-boot-starter-aop')
+    compile('aspectj:aspectjrt:1.5.4')
+    //testng
+    testCompile("org.jmockit:jmockit:${jmockitVersion}")
+    testCompile("org.testng:testng:${testngVersion}")
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootTestVersion}")
+}
