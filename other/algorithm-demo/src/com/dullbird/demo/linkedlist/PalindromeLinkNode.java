@@ -1,6 +1,5 @@
-package com.dullbird.demo.link;
+package com.dullbird.demo.linkedlist;
 
-import javax.sound.midi.Soundbank;
 import java.util.Objects;
 
 /**

@@ -3,6 +3,7 @@ package com.dullbird.demo.leetCode.list;
 import java.util.Objects;
 
 /**
+ * 合并两个有序链表
  * @author cys
  * @date 2019-11-06 7:52 PM
  */
