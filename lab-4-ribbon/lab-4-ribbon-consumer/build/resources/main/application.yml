@@ -6,16 +6,16 @@ spring:
       # Nacos 作为注册中心的配置项，对应 NacosDiscoveryProperties 配置类
       discovery:
         server-addr: 127.0.0.1:8848 # Nacos 服务器地址
-#ribbon的自定义客户端负载均衡规则 测试配置
-#服务的名称
-demo-provider:
-  ribbon:
-    # 负载均衡规则全类名 默认是 ZoneAvoidanceRule
-#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
-#ribbon的http客户端测试
-ribbon:
-  restclient:
-    enabled: true # 设置使用 Jersey Client，对应 RestClientRibbonConfiguration 配置类
+##ribbon的自定义客户端负载均衡规则 测试配置
+##服务的名称
+#demo-provider:
+#  ribbon:
+#    # 负载均衡规则全类名 默认是 ZoneAvoidanceRule
+##    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
+##ribbon的http客户端测试 未测试成功
+#ribbon:
+#  restclient:
+#    enabled: true # 设置使用 Jersey Client，对应 RestClientRibbonConfiguration 配置类
 server:
   port: 28080 # 服务器端口。默认为 8080
