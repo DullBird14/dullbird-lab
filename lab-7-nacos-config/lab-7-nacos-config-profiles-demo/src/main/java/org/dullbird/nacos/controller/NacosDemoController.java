@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import org.dullbird.nacos.config.OrderProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,9 +15,8 @@ import java.util.Map;
  * @version 1.0.0
  * @createTime 2020年04月13日 12:43:00
  */
-@RestController
-@RequestMapping("/demo")
-@RefreshScope
+//@RestController
+//@RequestMapping("/demo")
 public class NacosDemoController {
     @Autowired
     private OrderProperties orderProperties;

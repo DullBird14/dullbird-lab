@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 2ca830e9-3631-4ff0-82b6-adbf945367a4
+        group: DEFAULT_GROUP
+        name:
+        file-extension: yaml
