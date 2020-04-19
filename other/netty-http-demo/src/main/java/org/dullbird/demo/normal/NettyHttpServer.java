@@ -1,4 +1,4 @@
-package org.dullbird.demo;
+package org.dullbird.demo.normal;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -11,6 +11,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.HttpServerCodec;
 
 /**
+ * 正常的http netty客户端
  * @author dullBird
  * @version 1.0.0
  * @createTime 2020年04月17日 09:20:00
