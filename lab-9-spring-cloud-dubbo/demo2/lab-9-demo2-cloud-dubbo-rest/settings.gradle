@@ -1,0 +1,2 @@
+rootProject.name = 'lab-9-demo2-cloud-dubbo-rest'
+includeFlat("lab-9-demo2-cloud-dubbo-api")

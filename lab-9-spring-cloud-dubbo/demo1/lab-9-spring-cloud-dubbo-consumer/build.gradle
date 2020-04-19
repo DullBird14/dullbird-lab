@@ -26,6 +26,7 @@ repositories {
 }
 
 dependencies {
+    compile project("lab-9-spring-cloud-dubbo-api")
     // cloud + springboot有兼容性，自行查表
     compile "org.springframework.boot:spring-boot-starter-parent:2.2.4.RELEASE"
     compile 'org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR1'
@@ -34,6 +35,8 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     // nacos 注册中心
     compile 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2.2.0.RELEASE'
+    // cloud dubbo
+    compile 'com.alibaba.cloud:spring-cloud-starter-dubbo:2.2.0.RELEASE'
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

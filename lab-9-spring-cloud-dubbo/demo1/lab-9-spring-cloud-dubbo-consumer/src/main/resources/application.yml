@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: demo-consumer
+  cloud:
+    # Nacos 作为注册中心的配置项
+    nacos:
+      discovery:
+        # nacos 地址
+        server-addr: 127.0.0.1:8848
+dubbo:
+  registry:
+    # 指定 Dubbo 服务注册中心的地址
+    address: spring-cloud://127.0.0.1:8848
+  cloud:
+    # 订阅服务的关系，''不订阅服务，'*'为订阅所有服务
+    subscribed-services: demo-provider
+server:
+  port: 8081

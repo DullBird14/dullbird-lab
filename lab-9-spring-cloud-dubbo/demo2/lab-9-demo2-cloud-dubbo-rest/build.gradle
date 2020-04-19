@@ -26,6 +26,7 @@ repositories {
 }
 
 dependencies {
+    compile project("lab-9-demo2-cloud-dubbo-api")
     // cloud + springboot有兼容性，自行查表
     compile "org.springframework.boot:spring-boot-starter-parent:2.2.4.RELEASE"
     compile 'org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR1'
@@ -33,7 +34,16 @@ dependencies {
     // web 包
     compile 'org.springframework.boot:spring-boot-starter-web'
     // nacos 注册中心
-    compile 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2.2.0.RELEASE'
-
+    compile('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2.2.0.RELEASE'){
+        //排除依赖和rest冲突
+        exclude group: 'javax.ws.rs', module: 'jsr311-api'
+    }
+    // cloud dubbo
+    compile 'com.alibaba.cloud:spring-cloud-starter-dubbo:2.2.0.RELEASE'
+    //dubbo rest需要依赖的包
+    compile 'org.jboss.resteasy:resteasy-netty4:3.0.19.Final'
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'org.hibernate.validator:hibernate-validator'
+    compile 'com.jfinal:jetty-server:8.1.8'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
