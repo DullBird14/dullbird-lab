@@ -26,6 +26,10 @@ public class JolDemo {
          */
         JolDemo jolDemo = new JolDemo();
         System.out.println(ClassLayout.parseInstance(jolDemo).toPrintable());
+        synchronized (jolDemo) {
+            System.out.println(ClassLayout.parseInstance(jolDemo).toPrintable());
+        }
+        System.out.println(ClassLayout.parseInstance(new Object()).toPrintable());
 
     }
 }

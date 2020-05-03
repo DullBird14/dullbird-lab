@@ -1,6 +1,6 @@
-import org.dullbird.mybatis.plus.demo.MybatisPlusApplicationDemo;
+package org.dullbird.mybatis.plus.demo;
+
 import org.dullbird.mybatis.plus.demo.mapper.SelfMapper;
-import org.dullbird.mybatis.plus.demo.mapper.UserMapper;
 import org.dullbird.mybatis.plus.demo.po.User;
 import org.dullbird.mybatis.plus.demo.service.UserService;
 import org.junit.Test;
@@ -8,9 +8,12 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
+import org.dullbird.mybatis.plus.demo.mapper.UserMapper;
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
 
 /**
  * @author dullBird
@@ -57,5 +60,21 @@ public class SampleTest {
         int i = userMapper.deleteById(5L);
         List<User> users = userMapper.selectList(null);
         users.forEach(System.out::println);
+    }
+    @Test
+    public void testInsert() {
+        User user = new User().setName("ceshi");
+        ArrayList<User> objects = new ArrayList<>();
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < 10; i++) {
+            user.setAge(i);
+            userMapper.insert(user);
+            objects.add(user);
+        }
+        System.out.println(System.currentTimeMillis() - startTime);
+        startTime = System.currentTimeMillis();
+        userService.saveBatch(objects);
+        System.out.println(System.currentTimeMillis() - startTime);
+
     }
 }

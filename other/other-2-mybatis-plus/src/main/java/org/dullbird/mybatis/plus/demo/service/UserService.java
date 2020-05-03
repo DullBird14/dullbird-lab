@@ -1,6 +1,5 @@
 package org.dullbird.mybatis.plus.demo.service;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.dullbird.mybatis.plus.demo.po.User;
 

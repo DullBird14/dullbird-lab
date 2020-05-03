@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class FileApplication {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException {
         char targetWord = 'c';
         File file = new File("/Users/user01/workcontext/idea/learnSpace/dullbird-lab/question/question-log/src/main/resources/file.log");
         int count = 0;

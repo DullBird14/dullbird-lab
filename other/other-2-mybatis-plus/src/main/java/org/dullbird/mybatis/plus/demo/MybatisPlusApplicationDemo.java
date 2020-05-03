@@ -1,6 +1,7 @@
 package org.dullbird.mybatis.plus.demo;
 
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -12,7 +13,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("org.dullbird.mybatis.plus.demo")
 public class MybatisPlusApplicationDemo {
-
     public static void main(String[] args) {
         SpringApplication.run(MybatisPlusApplicationDemo.class, args);
     }
