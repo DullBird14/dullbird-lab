@@ -1,10 +1,6 @@
 package org.dullbird.demo;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author dullBird
@@ -23,6 +19,7 @@ public class ABCThreadDemo {
         new Thread(new TestThread(semaphoreA, semaphoreB, "A")).start();
         new Thread(new TestThread(semaphoreB, semaphoreC, "B")).start();
         new Thread(new TestThread(semaphoreC, semaphoreA, "C")).start();
+        //有些同步逻辑需要等待其他线程完成启动之后，才行执行下面这句。但是当前这个不用
         semaphoreA.release(1);
         Thread.sleep(3000);
     }
