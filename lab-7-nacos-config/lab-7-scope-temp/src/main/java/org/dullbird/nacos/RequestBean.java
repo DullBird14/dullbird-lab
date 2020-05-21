@@ -11,7 +11,20 @@ import org.springframework.web.context.annotation.RequestScope;
 @Component
 @RequestScope
 public class RequestBean {
+    private Long id;
+    private String name;
+
     public RequestBean() {
+        id = 1L;
+        name = "zhangsan";
         System.out.println("====================");
+    }
+
+    @Override
+    public String toString() {
+        return "RequestBean{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
