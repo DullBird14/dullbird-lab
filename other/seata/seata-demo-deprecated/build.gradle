@@ -1,0 +1,44 @@
+buildscript {
+    ext {
+        springBootVersion = '2.2.4.RELEASE'
+    }
+
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+}
+ext{
+    lombokVersion = '1.18.10'
+}
+dependencies {
+    compile 'io.seata:seata-all:1.2.0'
+    compile 'com.alibaba:dubbo:2.6.5'
+    compile 'org.springframework:spring-jdbc'
+    compile 'mysql:mysql-connector-java'
+    compile 'ch.qos.logback:logback-classic'
+    compile ('org.apache.curator:curator-recipes:4.2.0') {
+        exclude group: 'org.apache.zookeeper', module: 'zookeeper'
+    }
+    compile ('com.101tec:zkclient:0.10'){
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+        exclude group: 'log4j', module: 'log4j'
+    }
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

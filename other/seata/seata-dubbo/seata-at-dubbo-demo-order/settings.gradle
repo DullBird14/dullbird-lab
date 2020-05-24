@@ -1,0 +1,4 @@
+rootProject.name = 'seata-at-dubbo-demo-order'
+includeFlat("seata-at-dubbo-demo-order-api")
+includeFlat("seata-at-dubbo-demo-product-api")
+includeFlat("seata-at-dubbo-demo-account-api")
