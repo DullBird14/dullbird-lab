@@ -1,0 +1,27 @@
+server:
+  port: 8888
+spring:
+  cloud:
+    gateway:
+      # 路由配置项，对应 RouteDefinition 数组
+      routes:
+        - id: yudaoyuanma # 路由的编号
+          uri: http://www.iocoder.cn # 路由到的目标地址
+          predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
+            - Path=/blog
+          filters:
+            - StripPrefix=1
+        - id: ReactiveCompositeDiscoveryClient_gateway_userservice
+          uri: lb://gateway_userservice
+          predicates:
+            - Path=/gateway_userservice/**
+          filters:
+            - RewritePath=/gateway_userservice/(?<remaining>.*), /${remaining} # 将 /user-service 前缀剔除
+      discovery:
+        locator:
+          enabled: true
+#          url-expression: "'lb://'+serviceId"
+    # Nacos 作为注册中心的配置项
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 # Nacos 服务器地址
