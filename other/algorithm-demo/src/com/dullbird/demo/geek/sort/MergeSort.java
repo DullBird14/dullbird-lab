@@ -1,4 +1,4 @@
-package com.dullbird.demo.geek;
+package com.dullbird.demo.geek.sort;
 
 import java.util.Arrays;
 import java.util.Random;
