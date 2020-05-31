@@ -1,0 +1,17 @@
+#在nacos上面添加的配置
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        -   id: github_route
+#            predicates:
+#              - Path=/blog/**
+#            filters:
+#              - StripPrefix=1
+#            uri: http://www.iocoder.cn/
+#        -   id: ReactiveCompositeDiscoveryClient_user-service
+#            predicates:
+#              - Path=/service/**
+#            filters:
+#              - StripPrefix=1
+#            uri: http://127.0.0.1:13023

@@ -2,7 +2,6 @@ package org.dullbird.spring.gateway.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @author dullBird
@@ -10,8 +9,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @createTime 2020年05月28日 23:36:00
  */
 @SpringBootApplication
-public class GatewayApplication {
+public class GatewayConfigApplication {
     public static void main(String[] args) {
-        SpringApplication.run(GatewayApplication.class, args);
+        SpringApplication.run(GatewayConfigApplication.class, args);
     }
 }
