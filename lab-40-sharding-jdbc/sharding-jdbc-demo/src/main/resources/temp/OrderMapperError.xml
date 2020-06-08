@@ -5,7 +5,7 @@
     <sql id="FIELDS">
         id, user_id
     </sql>
-    <select id="selectById" parameterType="Integer" resultType="org.dullbird.jdbc.demo.po.OrderDO">
+        <select id="selectById" parameterType="Integer" resultType="org.dullbird.jdbc.demo.po.OrderDO">
         SELECT
         <include refid="FIELDS" />
         FROM orders

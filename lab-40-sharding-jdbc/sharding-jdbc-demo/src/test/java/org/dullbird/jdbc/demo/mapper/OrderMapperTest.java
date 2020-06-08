@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -25,5 +27,17 @@ public class OrderMapperTest {
     @Test
     public void test1() {
         orderMapper.insert(new OrderDO(1L, 1));
+    }
+
+    @Test
+    public void testSelectById() {
+        OrderDO order = orderMapper.selectById(1);
+        System.out.println(order);
+    }
+
+    @Test
+    public void testSelectListByUserId() {
+        List<OrderDO> orders = orderMapper.selectListByUserId(1);
+        System.out.println(orders.size());
     }
 }
