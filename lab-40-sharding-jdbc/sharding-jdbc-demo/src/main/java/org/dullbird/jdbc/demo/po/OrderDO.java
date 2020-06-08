@@ -15,6 +15,14 @@ public class OrderDO {
      */
     private Integer userId;
 
+    public OrderDO(Long id, Integer userId) {
+        this.id = id;
+        this.userId = userId;
+    }
+
+    public OrderDO() {
+    }
+
     public Long getId() {
         return id;
     }

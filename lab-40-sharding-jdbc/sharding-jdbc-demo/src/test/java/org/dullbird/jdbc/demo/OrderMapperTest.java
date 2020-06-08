@@ -22,24 +22,29 @@ import java.util.List;
 public class OrderMapperTest {
     @Autowired
     private OrderMapper orderMapper;
-
-    @Test
-    public void testSelectById() {
-        OrderDO order = orderMapper.selectById(1);
-        System.out.println(order);
-    }
-
-    @Test
-    public void testSelectListByUserId() {
-        List<OrderDO> orders = orderMapper.selectListByUserId(1);
-        System.out.println(orders.size());
-    }
-
-    @Test
-    public void testInsert() {
-        OrderDO order = new OrderDO();
-        order.setUserId(1);
-        orderMapper.insert(order);
-    }
+//    @Test
+//    public void testSelectConfigById() {
+//        OrderDO order = orderMapper.selectById(1);
+//        System.out.println(order);
+//    }
+//
+//    @Test
+//    public void testSelectById() {
+//        OrderDO order = orderMapper.selectById(1);
+//        System.out.println(order);
+//    }
+//
+//    @Test
+//    public void testSelectListByUserId() {
+//        List<OrderDO> orders = orderMapper.selectListByUserId(1);
+//        System.out.println(orders.size());
+//    }
+//
+//    @Test
+//    public void testInsert() {
+//        OrderDO order = new OrderDO();
+//        order.setUserId(1);
+//        orderMapper.insert(order);
+//    }
 
 }

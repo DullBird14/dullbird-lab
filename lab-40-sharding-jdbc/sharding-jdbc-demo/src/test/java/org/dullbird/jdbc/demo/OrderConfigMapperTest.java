@@ -1,7 +1,9 @@
 package org.dullbird.jdbc.demo;
 
 import org.dullbird.jdbc.demo.mapper.OrderConfigMapper;
+import org.dullbird.jdbc.demo.mapper.OrderMapper;
 import org.dullbird.jdbc.demo.po.OrderConfigDO;
+import org.dullbird.jdbc.demo.po.OrderDO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
