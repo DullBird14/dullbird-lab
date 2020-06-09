@@ -1,0 +1,47 @@
+spring:
+  # ShardingSphere 配置项
+  shardingsphere:
+    datasource:
+      # 所有数据源的名字
+      names: master, slave-1, slave-2
+      # 订单 orders 数据源配置 00
+      master:
+        type: com.zaxxer.hikari.HikariDataSource # 使用 Hikari 数据库连接池
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/lab18_orders_0?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: 123456
+      # 订单 orders 数据源配置 01
+      slave-1:
+        type: com.zaxxer.hikari.HikariDataSource # 使用 Hikari 数据库连接池
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/lab18_orders_1?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: 123456
+      # 订单 orders 数据源配置 02
+      slave-2:
+        type: com.zaxxer.hikari.HikariDataSource # 使用 Hikari 数据库连接池
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/lab18_orders_2?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: 123456
+    # 读写分离配置，对应 YamlMasterSlaveRuleConfiguration 配置类
+    masterslave:
+      name: ms # 名字，任意，需要保证唯一
+      master-data-source-name: master # 主库数据源
+      slave-data-source-names: slave-1, slave-2 # 从库数据源
+    # 拓展属性配置
+    props:
+      sql:
+        show: true # 打印 SQL
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: none
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.dullbird.jdbc.demo.po
