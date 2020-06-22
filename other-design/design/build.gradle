@@ -1,8 +1,8 @@
 plugins {
     id "io.spring.dependency-management" version "1.0.8.RELEASE"
     id "org.springframework.boot" version "2.2.4.RELEASE"
+    id "java"
 }
-apply plugin: 'java'
 
 group 'org.example'
 version '1.0-SNAPSHOT'
@@ -25,12 +25,5 @@ dependencies {
     testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
     testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
-    // es high level client
-    compile 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.5.2'
     compile 'org.springframework.boot:spring-boot-starter-web'
-    // es search
-    compile 'org.elasticsearch:elasticsearch:7.5.2'
-    compile 'org.elasticsearch.client:elasticsearch-rest-client:7.5.2'
-
-//    compile 'org.elasticsearch.client:elasticsearch-rest-client:7.5.2'
 }

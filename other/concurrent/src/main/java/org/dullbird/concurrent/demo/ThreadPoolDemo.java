@@ -28,6 +28,7 @@ public class ThreadPoolDemo {
                 }
             });
         }
+        Thread.sleep(10000L);
         while (!latch.await(2,
                 TimeUnit.SECONDS)) {
             System.out.println(threadPoolExecutor.getPoolSize());
