@@ -1,6 +1,8 @@
 package com.dullbird.demo.leetCode.binary;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -9,20 +11,21 @@ import java.util.Set;
  */
 
 public class ThreeNineTwo {
-	public static void main(String[] args) {
-		ThreeNineTwo threeNineTwo = new ThreeNineTwo();
-		System.out.println(threeNineTwo.isSubsequence("acb", "ahbgdc"));
-	}
-	public boolean isSubsequence(String s, String t) {
-		Set<Character> tSet = new HashSet<>();
-		for (int i = 0; i < t.length(); i++) {
-			tSet.add(t.charAt(i));
-		}
-		for (int i = 0; i < s.length(); i++) {
-			if (!tSet.contains(s.charAt(i))) {
-				return false;
-			}
-		}
-		return true;
-	}
+    public static void main(String[] args) {
+        ThreeNineTwo threeNineTwo = new ThreeNineTwo();
+        System.out.println(threeNineTwo.isSubsequence("aaaa", "bbaaaa"));
+    }
+
+    public boolean isSubsequence(String s, String t) {
+        int index = 0;
+        for (int i = 0; i < s.length(); i++) {
+			int indexOfChar = t.substring(index)
+					.indexOf(s.charAt(i));
+			if (indexOfChar == -1) {
+                return false;
+            }
+			index = index + indexOfChar + 1;
+        }
+        return true;
+    }
 }
