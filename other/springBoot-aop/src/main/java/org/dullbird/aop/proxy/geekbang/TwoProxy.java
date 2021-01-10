@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class JDKProxy {
+public class TwoProxy {
     public static void main(String[] args) {
         ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
         HelloServiceImpl helloService = new HelloServiceImpl();
@@ -25,11 +25,15 @@ public class JDKProxy {
         jdkHello.sayHello();
 
         Enhancer enhancer = new Enhancer();
-        enhancer.setInterfaces(new Class[]{HelloService.class});
+        //可以指定接口
+//        enhancer.setInterfaces(new Class[]{HelloService.class});
+        //指定父类，就是我们的实现类
         enhancer.setSuperclass(HelloServiceImpl.class);
         enhancer.setCallback(new MethodInterceptor() {
             @Override
-            public Object intercept(Object object, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+            public Object intercept(Object object, Method method, Object[] objects,
+                                    MethodProxy methodProxy) throws Throwable {
+                //如果调用method的话会无限递归
                 System.out.println("cglib proxy;");
                 return methodProxy.invokeSuper(object, objects);
             }
