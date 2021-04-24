@@ -1,6 +1,5 @@
 package com.dullbird.demo.leetCode.string;
 
-import com.sun.tools.javac.util.ArrayUtils;
 
 /**
  * @author dullBird
